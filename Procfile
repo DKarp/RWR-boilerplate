@@ -1,2 +1,3 @@
-RAILS:        rails s -p 3000
-WEBPACK:      npm run start-hot-dev
+RAILS:                    rails s -p 3000
+WEBPACK:                  npm start
+WEBPACK_DEV_SERVER:       npm run start-hot-dev

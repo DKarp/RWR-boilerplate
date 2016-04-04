@@ -43,6 +43,7 @@ cd _PROJECT_NAME_
 rvm gemset create _PROJECT_NAME_
 rvm gemset use _PROJECT_NAME_
 gem install rails -v 5.0.0.beta3
+cp config/secrets.example.yml config/secrets.yml
 bundle
 npm install
 ```
