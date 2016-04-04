@@ -1,4 +1,5 @@
 // var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
@@ -19,16 +20,19 @@ module.exports = {
       {
         key: 'scss',
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader!autoprefixer-loader' // - inline: working
+        loader: 'style-loader!css-loader!sass-loader!postcss-loader' // - inline: working
         // loader: ExtractTextPlugin.extract('css!sass') // - generated: not working
       },
       {
         key: 'css',
         test: /\.css$/,
-        loader: 'style-loader!css-loader!autoprefixer-loader' // - inline: working
+        loader: 'style-loader!css-loader!postcss-loader' // - inline: working
         // loader: ExtractTextPlugin.extract('css!sass') // - generated: not working
       }
     ]
+  },
+  postcss: function () {
+    return [autoprefixer];
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.js.jsx']
