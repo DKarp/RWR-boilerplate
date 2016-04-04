@@ -1,0 +1,13 @@
+/* layouts/main_layout.scss */
+
+@import "app/react/config/variables";
+
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  main {
+    flex: 1;
+  }
+}

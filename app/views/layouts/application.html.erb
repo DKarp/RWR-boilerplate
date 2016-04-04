@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsReact</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+    <%= render 'layouts/no_script' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/react_hot_assets' %>
+    <%= yield %>
+  </body>
+</html>
