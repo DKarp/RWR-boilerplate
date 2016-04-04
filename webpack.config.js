@@ -1,3 +1,4 @@
+var path = require('path');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -32,6 +33,7 @@ module.exports = {
     return [autoprefixer];
   },
   resolve: {
+    root: path.resolve('./app/react'),
     extensions: ['', '.js', '.jsx', '.js.jsx']
   },
   plugins: []

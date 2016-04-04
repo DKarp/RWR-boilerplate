@@ -3,7 +3,7 @@
 import './example.scss';
 
 import React from 'react';
-import { formattedDate } from '../../helpers/date_helpers';
+import { formattedDate } from 'helpers/date_helpers';
 import { Link } from 'react-router';
 
 class Example extends React.Component {

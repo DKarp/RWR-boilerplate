@@ -3,8 +3,8 @@
 import './main_layout.scss';
 import React from 'react';
 
-import Header from '../components/header/header.jsx';
-import Footer from '../components/footer/footer.jsx';
+import Header from 'components/header/header.jsx';
+import Footer from 'components/footer/footer.jsx';
 
 class MainLayout extends React.Component {
   render() {

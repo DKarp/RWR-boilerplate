@@ -4,9 +4,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 
-import MainLayout from '../layouts/main_layout';
-import Example from '../components/example/example';
-import NotFound from '../components/not_found/not_found';
+import MainLayout from 'layouts/main_layout';
+import Example from 'components/example/example';
+import NotFound from 'components/not_found/not_found';
 
 $( () => {
   const root = document.querySelector('#root');
