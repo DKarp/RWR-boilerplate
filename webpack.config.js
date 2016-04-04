@@ -1,4 +1,3 @@
-// var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -20,14 +19,12 @@ module.exports = {
       {
         key: 'scss',
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader!postcss-loader' // - inline: working
-        // loader: ExtractTextPlugin.extract('css!sass') // - generated: not working
+        loader: 'style-loader!css-loader!sass-loader!postcss-loader'
       },
       {
         key: 'css',
         test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader' // - inline: working
-        // loader: ExtractTextPlugin.extract('css!sass') // - generated: not working
+        loader: 'style-loader!css-loader!postcss-loader'
       }
     ]
   },
@@ -37,9 +34,5 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.js.jsx']
   },
-  plugins: [
-    // new ExtractTextPlugin('../stylesheets/react_bundle.css', {
-    //   allChunks: true
-    // })
-  ]
+  plugins: []
 };

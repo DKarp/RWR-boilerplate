@@ -27,7 +27,6 @@ $ npm -v
 
 ##### NOT RESOLVED:
 * server side react components with RWR (conflict with style imports)
-* separate css bundle with webpack ExtractTextPlugin (conflict with HMR)
 * git
 
 ##### RESOLVED:
