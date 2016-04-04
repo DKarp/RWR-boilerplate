@@ -23,8 +23,8 @@ $ npm -v
 ```
 
 ##### NOT RESOLVED:
-* server side react components with RWR
-* separate css bundle with webpack ExtractTextPlugin
+* server side react components with RWR (conflict with style imports)
+* separate css bundle with webpack ExtractTextPlugin (conflict with HMR)
 * render rails layout without yield and react_controller
 * git
 
@@ -38,6 +38,11 @@ $ npm -v
 ### Install
 
 ```
+git clone https://github.com/sunstorymvp/RWR-boilerplate.git _PROJECT_NAME_
+cd _PROJECT_NAME_
+rvm gemset create _PROJECT_NAME_
+rvm gemset use _PROJECT_NAME_
+gem install rails -v 5.0.0.beta3
 bundle
 npm install
 ```
