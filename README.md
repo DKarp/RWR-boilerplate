@@ -6,6 +6,9 @@ Based on https://github.com/netguru/react_webpack_rails.
 ##### DEVELOPED WITH:
 
 ```
+$ ruby -v
+ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
+
 $ rails -v
 Rails 5.0.0.beta3
 
