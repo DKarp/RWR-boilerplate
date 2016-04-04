@@ -41,9 +41,8 @@ $ npm -v
 ```
 git clone https://github.com/sunstorymvp/RWR-boilerplate.git _PROJECT_NAME_
 cd _PROJECT_NAME_
-rvm gemset create _PROJECT_NAME_
-rvm gemset use _PROJECT_NAME_
-gem install rails -v 5.0.0.beta3
+rvm use ruby-2.3.0@_PROJECT_NAME_ --ruby-version --create
+gem install bundler
 cp config/secrets.example.yml config/secrets.yml
 bundle
 npm install
