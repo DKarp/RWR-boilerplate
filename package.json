@@ -50,9 +50,5 @@
     "start": "webpack -w --config webpack/dev.config.js",
     "start-hot-dev": "webpack-dev-server --hot --inline --config webpack/hot-dev.config.js",
     "test": "karma start"
-  },
-  "license": "",
-  "engines": {
-    "node": ">= 0.10"
   }
 }
