@@ -34,6 +34,8 @@ $ npm -v
 * SASS
 * Autoprefixer
 * Foundation Sites
+* base layout, base router, example es2015 component
+* configured ESLint
 
 ### Install
 
