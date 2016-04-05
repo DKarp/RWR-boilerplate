@@ -1,21 +1,19 @@
-'use strict';
-
 import './example.scss';
 
 import React from 'react';
-import { formattedDate } from 'helpers/date_helpers';
 import { Link } from 'react-router';
+
+import * as exampleActions from 'state/actions/example';
+import { connectToRedux } from 'helpers/redux_helpers';
+import { formattedDate } from 'helpers/date_helpers';
 
 class Example extends React.Component {
   constructor(props, context, updater) {
     super(...arguments);
 
     this.state = {
-      clicks: 0,
       timeNow: new Date()
     };
-
-    this.handleClick = this.handleClick.bind(this);
   }
 
   static get defaultProps() {
@@ -26,7 +24,8 @@ class Example extends React.Component {
 
   static get propTypes() {
     return {
-      title: React.PropTypes.string
+      title: React.PropTypes.string,
+      clicks: React.PropTypes.number
     };
   }
 
@@ -45,22 +44,24 @@ class Example extends React.Component {
     clearInterval(this.state.timerId);
   }
 
-  handleClick() {
-    this.setState({ clicks: ++this.state.clicks });
-  }
-
   render() {
+    const { incrementClicks } = this.props.actions;
+
     return (
       <div className='example success callout'>
         <p>Hello World</p>
         <p>{ this.props.title }</p>
         <p>Today is { formattedDate(this.state.timeNow) }</p>
-        <p>this.state.clicks == { this.state.clicks }</p>
-        <button className='button success' onClick={ this.handleClick }>click me</button>
+        <p>this.props.clicks == { this.props.clicks }</p>
+        <button className='button success' onClick={ incrementClicks }>click me</button>
         <p><Link to={ '/some-path' }>link to not found page</Link></p>
       </div>
     );
   }
 }
 
-export default Example;
+export default connectToRedux(Example, exampleActions, (state) => {
+  return {
+    clicks: state.example.clicks
+  };
+});
