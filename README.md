@@ -37,6 +37,7 @@ $ npm -v
 * Foundation Sites
 * base layout, base router, example es2015 component
 * configured ESLint
+* Redux
 
 ### Install
 
