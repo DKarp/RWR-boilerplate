@@ -31,12 +31,13 @@ $ npm -v
 ##### RESOLVED:
 * Rails + React + Webpack
 * Hot Module Replacement
+* configured Redux
+* Foundation Sites
 * SASS
 * Autoprefixer
-* Foundation Sites
-* base layout, base router, example es2015 component
 * configured ESLint
-* Redux
+* configured Stylelint
+* base layout, base router, example es2015 component
 
 ### Install
 
