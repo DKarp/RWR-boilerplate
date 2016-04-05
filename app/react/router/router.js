@@ -5,7 +5,7 @@ import MainLayout from 'layouts/main_layout';
 import Example from 'components/example/example';
 import NotFound from 'components/not_found/not_found';
 
-const Routes = (
+const routes = (
   <Router history={ browserHistory }>
     <Route component={ MainLayout }>
       <Route path="/" name='example' components={ { yield: Example } } />
@@ -14,4 +14,4 @@ const Routes = (
   </Router>
 );
 
-export default Routes;
+export default routes;

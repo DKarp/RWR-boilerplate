@@ -8,7 +8,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'state/configure_store';
-import Routes from 'router/router';
+import routes from 'router/router';
 
 RWR.run();
 
@@ -19,7 +19,7 @@ $( () => {
 
   const app = (
     <Provider store={ store }>
-      { Routes }
+      { routes }
     </Provider>
   );
 
