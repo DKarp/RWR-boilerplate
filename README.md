@@ -27,7 +27,6 @@ $ npm -v
 
 ##### NOT RESOLVED:
 * server side react components with RWR (conflict with style imports)
-* git
 
 ##### RESOLVED:
 * Rails + React + Webpack
@@ -44,9 +43,18 @@ $ npm -v
 ```
 git clone https://github.com/sunstorymvp/RWR-boilerplate.git _PROJECT_NAME_
 cd _PROJECT_NAME_
+
 rvm use ruby-2.3.0@_PROJECT_NAME_ --ruby-version --create
-gem install bundler
 cp config/secrets.example.yml config/secrets.yml
+
+rm -rf .git
+git init
+git remote add origin _NEW_GIT_REPOSITORY_
+git add .
+git commit
+git push -u origin master
+
+gem install bundler
 bundle
 npm install
 ```
