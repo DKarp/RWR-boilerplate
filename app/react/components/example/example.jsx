@@ -2,9 +2,6 @@ import './example.scss';
 
 import React from 'react';
 import { Link } from 'react-router';
-
-import * as exampleActions from 'state/actions/example';
-import { connectToRedux } from 'helpers/redux_helpers';
 import { formattedDate } from 'helpers/date_helpers';
 
 class Example extends React.Component {
@@ -30,9 +27,6 @@ class Example extends React.Component {
   }
 
   componentDidMount() {
-    console.log('example component mounted');
-    console.log(`current route - ${ this.props.route.name }`);
-
     const timerId = setInterval( () => {
       return this.setState({ timeNow: new Date() });
     }, 1000);
@@ -60,8 +54,27 @@ class Example extends React.Component {
   }
 }
 
-export default connectToRedux(Example, exampleActions, (state) => {
+// connect to Redux
+
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as exampleActions from 'state/actions/example';
+
+function mapStateToProps(state, ownProps) {
   return {
     clicks: state.example.clicks
   };
-});
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    actions: bindActionCreators(exampleActions, dispatch)
+  };
+}
+
+const connectedExample = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Example);
+
+export default connectedExample;
