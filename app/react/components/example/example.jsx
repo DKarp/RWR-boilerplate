@@ -39,7 +39,7 @@ class Example extends React.Component {
   }
 
   render() {
-    const { incrementClicks } = this.props.actions;
+    const { incrementClicks, fetchPosts } = this.props.actions;
 
     return (
       <div className='example success callout'>
@@ -48,6 +48,12 @@ class Example extends React.Component {
         <p>Today is { formattedDate(this.state.timeNow) }</p>
         <p>this.props.clicks == { this.props.clicks }</p>
         <button className='button success' onClick={ incrementClicks }>click me</button>
+        <button className='button' onClick={ fetchPosts }>
+          fetch posts from reddit
+        </button>
+        {
+          this.props.posts.map(post => <p key={ post.id }>{ post.title }</p>)
+        }
         <p><Link to={ '/some-path' }>link to not found page</Link></p>
       </div>
     );
@@ -59,16 +65,18 @@ class Example extends React.Component {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as clickActions from 'state/actions/clicks';
+import * as redditActions from 'state/actions/reddit';
 
 function mapStateToProps(state, ownProps) {
   return {
-    clicks: state.clicks
+    clicks: state.clicks,
+    posts: state.reddit.posts
   };
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    actions: bindActionCreators(clickActions, dispatch)
+    actions: bindActionCreators({ ...clickActions, ...redditActions }, dispatch)
   };
 }
 
