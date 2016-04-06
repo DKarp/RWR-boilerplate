@@ -58,17 +58,17 @@ class Example extends React.Component {
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as exampleActions from 'state/actions/example';
+import * as clickActions from 'state/actions/clicks';
 
 function mapStateToProps(state, ownProps) {
   return {
-    clicks: state.example.clicks
+    clicks: state.clicks
   };
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    actions: bindActionCreators(exampleActions, dispatch)
+    actions: bindActionCreators(clickActions, dispatch)
   };
 }
 
