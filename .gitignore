@@ -37,6 +37,7 @@ npm-debug.log
 
 
 /config/secrets.yml
+/config/database.yml
 
 /node_modules
 /app/assets/javascripts/react_bundle.js

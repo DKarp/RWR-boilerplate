@@ -47,6 +47,7 @@ cd _PROJECT_NAME_
 
 rvm use ruby-2.3.0@_PROJECT_NAME_ --ruby-version --create
 cp config/secrets.example.yml config/secrets.yml
+cp config/database.example.yml config/database.yml
 
 rm -rf .git
 git init

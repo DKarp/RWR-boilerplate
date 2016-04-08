@@ -9,6 +9,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'state/configure_store';
 import routes from 'router/router';
+import cable from 'config/action_cable';
 
 RWR.run();
 
@@ -18,7 +19,7 @@ $( () => {
   const root = document.querySelector('#root');
 
   const app = (
-    <Provider store={ store }>
+    <Provider store={ store } cable={ cable }>
       { routes }
     </Provider>
   );
