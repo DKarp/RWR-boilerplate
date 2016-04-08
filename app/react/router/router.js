@@ -8,7 +8,7 @@ import NotFound from 'components/not_found/not_found';
 const routes = (
   <Router history={ browserHistory }>
     <Route component={ MainLayout }>
-      <Route path="/" name='example' components={ { yield: Example } } />
+      <Route path="/" components={ { yield: Example } } />
     </Route>
     <Route path="*" component={ NotFound } />
   </Router>
