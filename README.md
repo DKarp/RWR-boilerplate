@@ -32,6 +32,7 @@ $ npm -v
 * Rails + React + Webpack
 * Hot Module Replacement
 * configured Redux
+* configured ActionCable
 * Foundation Sites
 * SASS
 * Autoprefixer
