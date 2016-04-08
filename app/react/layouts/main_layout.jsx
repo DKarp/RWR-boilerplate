@@ -4,20 +4,16 @@ import React from 'react';
 import Header from 'components/header/header';
 import Footer from 'components/footer/footer';
 
-class MainLayout extends React.Component {
-  render() {
-    return (
-      <div className="main-layout">
-        { this.props.header || <Header /> }
+const MainLayout = (props) => (
+  <div className="main-layout">
+    { props.header || <Header /> }
 
-        <main role="main">
-          { this.props.yield }
-        </main>
+    <main role="main">
+      { props.yield }
+    </main>
 
-        { this.props.footer || <Footer /> }
-      </div>
-    );
-  }
-}
+    { props.footer || <Footer /> }
+  </div>
+);
 
 export default MainLayout;
