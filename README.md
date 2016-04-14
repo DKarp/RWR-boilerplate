@@ -27,12 +27,12 @@ $ npm -v
 
 ##### NOT RESOLVED:
 * server side react components with RWR (conflict with style imports)
+* ActionCable
 
 ##### RESOLVED:
 * Rails + React + Webpack
 * Hot Module Replacement
 * configured Redux
-* configured ActionCable
 * Foundation Sites
 * SASS
 * Autoprefixer
@@ -50,16 +50,17 @@ rvm use ruby-2.3.0@_PROJECT_NAME_ --ruby-version --create
 cp config/secrets.example.yml config/secrets.yml
 cp config/database.example.yml config/database.yml
 
+gem install bundler
+bundle
+npm update --save
+npm update --save-dev
+
 rm -rf .git
 git init
 git remote add origin _NEW_GIT_REPOSITORY_
 git add .
 git commit -m 'initial commit'
 git push -u origin master
-
-gem install bundler
-bundle
-npm install
 ```
 ### Start
 
