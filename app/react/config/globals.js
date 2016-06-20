@@ -1,6 +1,8 @@
 import $ from 'jquery';
 
-const global = window || global;
-
-global.jQuery = $;
-global.$ = $;
+(function (global) {
+  if (global) {
+    global.jQuery = $;
+    global.$ = $;
+  }
+}(window));

@@ -1,0 +1,10 @@
+/* styles/utils.scss */
+
+@import "app/react/config/app_settings";
+
+.sprite,
+.sprite-before::before,
+.sprite-after::after {
+  background-size: 200px 200px;
+  background-image: url("/images/sprite.png");
+}

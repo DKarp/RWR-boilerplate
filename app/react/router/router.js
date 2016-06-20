@@ -1,17 +1,40 @@
-import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import React, { PropTypes } from 'react';
+import { Router, Route, IndexRoute, IndexRedirect } from 'react-router';
+import { replace } from 'react-router-redux';
+import { UserAuthWrapper as authWrapper } from 'redux-auth-wrapper';
 
-import MainLayout from 'layouts/main_layout';
-import ExampleContainer from 'components/example/example_container';
+import Main from 'layouts/main';
+import HomePage from 'components/views/home_page/home_page';
 import NotFound from 'components/not_found/not_found';
 
+const userIsAuthenticated = authWrapper({
+  authSelector: (state) => state.user,
+  predicate: (user) => user.id,
+  failureRedirectPath: '/auth/login',
+  redirectAction: replace
+});
+
+const userIsNotAuthenticated = authWrapper({
+  authSelector: (state) => state.user,
+  predicate: (user) => !user.id,
+  failureRedirectPath: '/',
+  redirectAction: replace,
+  allowRedirectBack: false
+});
+
 const routes = (
-  <Router history={ browserHistory }>
-    <Route component={ MainLayout }>
-      <Route path="/" components={ { yield: ExampleContainer } } />
-    </Route>
-    <Route path="*" component={ NotFound } />
-  </Router>
+  <Route path="/" component={ Main }>
+    <IndexRoute components={ { yield: HomePage } } />
+    <Route path="*" components={ { yield: NotFound } } />
+  </Route>
 );
 
-export default routes;
+const Routes = (props) => (
+  <Router history={ props.history } routes={ routes } />
+);
+
+Routes.propTypes = {
+  history: PropTypes.object.isRequired
+};
+
+export default Routes;

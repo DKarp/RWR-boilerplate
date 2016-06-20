@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsReact</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+    <link rel="dns-prefetch" href="//fonts.googleapis.com/">
+
+    <title>PROJECT TITLE</title>
+
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application' %>
-    <%= render 'layouts/react_hot_assets' %>
-    <%= render 'layouts/no_script' %>
+    <%= render 'layouts/react_initial_state' %>
   </head>
 
   <body>
     <div id='root'></div>
+
+    <%= render 'layouts/react_hot_assets' %>
+    <%= render 'layouts/no_script' %>
   </body>
 </html>
