@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '~> 5.0.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -25,7 +25,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'jquery-rails'
 
 # React gems
-gem 'react_webpack_rails', '~> 0.3.1'
+gem 'react_webpack_rails', '~> 0.4.1'
 
 # ActiveAdmin gems
 # gem 'activeadmin', github: 'activeadmin'
@@ -48,7 +48,6 @@ group :development do
   gem 'foreman'
   gem 'haml2slim'
   gem 'html2haml'
-  gem 'quiet_assets'
   gem 'rails_apps_pages'
   gem 'rails_layout'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

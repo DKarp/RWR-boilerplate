@@ -1,20 +1,20 @@
 import React, { PropTypes } from 'react';
-import { Router, Route, IndexRoute, IndexRedirect } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import { replace } from 'react-router-redux';
-import { UserAuthWrapper as authWrapper } from 'redux-auth-wrapper';
+import { UserAuthWrapper } from 'redux-auth-wrapper';
 
 import Main from 'layouts/main';
 import HomePage from 'components/views/home_page/home_page';
 import NotFound from 'components/not_found/not_found';
 
-const userIsAuthenticated = authWrapper({
+const userIsAuthenticated = UserAuthWrapper({
   authSelector: (state) => state.user,
   predicate: (user) => user.id,
   failureRedirectPath: '/auth/login',
   redirectAction: replace
 });
 
-const userIsNotAuthenticated = authWrapper({
+const userIsNotAuthenticated = UserAuthWrapper({
   authSelector: (state) => state.user,
   predicate: (user) => !user.id,
   failureRedirectPath: '/',
