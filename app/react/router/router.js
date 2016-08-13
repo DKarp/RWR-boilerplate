@@ -24,8 +24,8 @@ const userIsNotAuthenticated = UserAuthWrapper({
 
 const routes = (
   <Route path="/" component={ Main }>
-    <IndexRoute components={ { yield: HomePage } } />
-    <Route path="*" components={ { yield: NotFound } } />
+    <IndexRoute component={ HomePage } />
+    <Route path="*" component={ NotFound } />
   </Route>
 );
 

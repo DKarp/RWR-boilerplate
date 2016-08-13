@@ -7,6 +7,8 @@ export const loadState = () => {
     return serializedState && JSON.parse(serializedState);
   } catch (error) {
     // ignore localStorage errors...
+
+    return {};
   }
 };
 

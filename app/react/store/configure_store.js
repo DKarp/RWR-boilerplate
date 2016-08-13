@@ -13,7 +13,7 @@ const configureStore = () => {
     const state = store.getState();
 
     saveState({
-      user: state.user
+      // user: state.user
     });
   }, 1000));
 

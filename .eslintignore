@@ -1,8 +1,5 @@
 # ignore RWR scaffold
-webpack.config.js
-karma.conf.js
 app/react/node_server.js
-webpack/
 
 # ignore webpack bundle
 app/assets/javascripts/react_bundle.js

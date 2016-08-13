@@ -12,7 +12,7 @@ middlewares.push(thunk);
 middlewares.push(routingMiddleware);
 
 // enable redux logger only in dev env
-(window && __DEVELOPMENT__) && middlewares.push(logger);
+(window && process.env.NODE_ENV === 'development') && middlewares.push(logger);
 
 const enhancer = applyMiddleware(...middlewares);
 

@@ -6,21 +6,14 @@ import Footer from 'components/footer/footer';
 
 const Main = (props) => (
   <div className="main-layout">
-    { props.header }
-    <main role="main">{ props.yield }</main>
-    { props.footer }
+    <Header />
+    <main role="main">{ props.children }</main>
+    <Footer />
   </div>
 );
 
 Main.propTypes = {
-  header: PropTypes.element,
-  yield: PropTypes.element.isRequired,
-  footer: PropTypes.element
-};
-
-Main.defaultProps = {
-  header: <Header />,
-  footer: <Footer />
+  children: PropTypes.element.isRequired
 };
 
 export default Main;

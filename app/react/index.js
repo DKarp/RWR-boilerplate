@@ -26,11 +26,21 @@ $(document).foundation();
 const root = document.querySelector('#root');
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
-
 const app = (
   <Provider store={ store }>
     <Routes history={ history } />
   </Provider>
 );
 
-render(app, root);
+// Enable Webpack 2 hot module replacement
+if (module.hot) {
+  const { AppContainer } = require('react-hot-loader');
+
+  render(<AppContainer>{ app }</AppContainer>, root);
+
+  module.hot.accept('./index', () => {
+    render(<AppContainer>{ app }</AppContainer>, root);
+  });
+} else {
+  render(app, root);
+}

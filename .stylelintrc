@@ -7,7 +7,7 @@
     "./app/react/config/foundation_settings.scss"
   ],
   "rules": {
-    "at-rule-empty-line-before": [ "never", { ignore: [ "blockless-group", "after-comment" ], ignoreAtRules: [ "mixin" ] } ],
+    "at-rule-empty-line-before": [ "never", { ignore: [ "blockless-group", "after-comment" ], ignoreAtRules: [ "mixin", "font-face" ] } ],
     "at-rule-name-case": "lower",
     "at-rule-name-space-after": "always-single-line",
     "at-rule-semicolon-newline-after": "always",

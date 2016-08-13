@@ -99,6 +99,12 @@ logfile
 /config/database.yml
 
 /node_modules
+
+# webpack bundle
+/public/assets
 /app/assets/javascripts/react_bundle.js
 /app/assets/javascripts/react_bundle.js.map
 /app/assets/stylesheets/react_bundle.css
+/app/assets/stylesheets/react_bundle.css.map
+
+webpack_stats.json
