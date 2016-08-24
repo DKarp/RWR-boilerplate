@@ -1,6 +1,8 @@
 const path = require('path');
-const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
+const postcssImport = require('postcss-import');
+const mqpacker = require('css-mqpacker');
+const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
@@ -39,6 +41,11 @@ module.exports = (env) => {
       root: path.resolve('./app/react')
     }
   };
+  const postcss = () => [
+    postcssImport({ addDependencyTo: webpack }),
+    mqpacker({ sort: true }),
+    autoprefixer
+  ];
   const plugins = [ environment, noBuildWithErrors, extractStyles ];
   const stats = {
     hash: false,
@@ -138,7 +145,7 @@ module.exports = (env) => {
       stats
     },
     stats,
-    postcss: () => [ autoprefixer ],
+    postcss,
     plugins
   };
 };

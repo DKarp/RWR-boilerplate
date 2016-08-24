@@ -9,10 +9,11 @@ Based on https://github.com/netguru/react_webpack_rails.
 * configured Redux
 * Foundation Sites
 * SASS
-* Autoprefixer
+* PostCSS
 * configured ESLint
 * configured Stylelint
-* base layout, base router, example es2015 component
+* base layout, base router
+* configured Jest
 
 ### Install
 

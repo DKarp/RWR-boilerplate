@@ -1,10 +1,10 @@
-const storage = window.localStorage;
+export const storage = window.localStorage;
 
 export const loadState = () => {
   try {
     const serializedState = storage.getItem('state');
 
-    return serializedState && JSON.parse(serializedState);
+    return serializedState ? JSON.parse(serializedState) : {};
   } catch (error) {
     // ignore localStorage errors...
 

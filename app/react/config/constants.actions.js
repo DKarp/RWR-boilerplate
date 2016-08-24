@@ -1,5 +1,1 @@
-export const USER_LOGGED_IN = 'USER_LOGGED_IN';
-export const USER_LOGGED_OUT = 'USER_LOGGED_OUT';
-
-export const INITIAL_SCREEN_SIZE = 'INITIAL_SCREEN_SIZE';
-export const SCREEN_RESIZE = 'SCREEN_RESIZE';
+export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';

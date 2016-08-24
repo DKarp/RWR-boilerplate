@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import rootReducer from './root_reducer';
+import rootReducer from './reducers/';
 import initialState from './initial_state';
 import enhancer from './configure_enhancer';
 import { saveState } from './local_storage';
@@ -21,10 +21,10 @@ const configureStore = () => {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./root_reducer', () => {
-      const nextReducer = require('./root_reducer').default;
+    module.hot.accept('./reducers/', () => {
+      const updatedRootReducer = require('./reducers/').default;
 
-      store.replaceReducer(nextReducer);
+      store.replaceReducer(updatedRootReducer);
     });
   }
 

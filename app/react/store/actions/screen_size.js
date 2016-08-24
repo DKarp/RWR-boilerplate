@@ -1,9 +1,5 @@
-import { INITIAL_SCREEN_SIZE, SCREEN_RESIZE } from 'config/constants.actions';
+import { createActions } from 'redux-actions';
 
-export const initialScreenSize = () => ({
-  type: INITIAL_SCREEN_SIZE
-});
+const actions = createActions('INITIAL_SCREEN_SIZE', 'SCREEN_RESIZE');
 
-export const screenResize = () => ({
-  type: SCREEN_RESIZE
-});
+export const { initialScreenSize, screenResize } = actions;

@@ -4,7 +4,9 @@
     "autoprefixer": "*",
     "babel-core": "*",
     "babel-eslint": "*",
+    "babel-jest": "*",
     "babel-loader": "*",
+    "babel-plugin-transform-es2015-modules-commonjs": "*",
     "babel-plugin-transform-regenerator": "*",
     "babel-polyfill": "*",
     "babel-preset-es2015": "*",
@@ -13,13 +15,19 @@
     "babel-register": "*",
     "clean-webpack-plugin": "*",
     "css-loader": "*",
+    "css-mqpacker": "*",
     "eslint": "*",
     "eslint-plugin-babel": "*",
     "eslint-plugin-react": "*",
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
     "file-loader": "git+https://github.com/mobitar/file-loader.git",
+    "jest": "*",
+    "jest-cli": "*",
+    "postcss-import": "8.1.0",
     "postcss-loader": "*",
+    "react-addons-test-utils": "*",
     "react-hot-loader": "^3.0.0-beta.2",
+    "react-test-renderer": "*",
     "sass-loader": "*",
     "sass-variables-loader": "*",
     "style-loader": "*",
@@ -49,18 +57,59 @@
     "react-timeout": "*",
     "react-webpack-rails": "*",
     "redux": "*",
+    "redux-actions": "*",
     "redux-auth-wrapper": "*",
     "redux-logger": "*",
+    "redux-promise": "*",
     "redux-thunk": "*",
     "reselect": "*",
     "uuid": "*",
     "whatwg-fetch": "*"
   },
+  "jest": {
+    "rootDir": "./app/react",
+    "notify": true,
+    "coverageDirectory": "<rootDir>/tests/coverage",
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "<rootDir>/tests/"
+    ],
+    "moduleFileExtensions": [
+      "",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "<rootDir>/app/react"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "<rootDir>/tests/setup/modules/style.mock.js",
+      "^.+\\.(png|jpg|svg|webp|woff|woff2|mp4|mpg|pdf|txt)$": "<rootDir>/tests/setup/modules/file.mock.js"
+    },
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "unmockedModulePathPatterns": [
+      "./node_modules/lodash/",
+      "./node_modules/react/",
+      "./node_modules/react-dom/",
+      "./node_modules/react-test-renderer/",
+      "./node_modules/react-addons-test-utils/",
+      "./node_modules/redux-actions/"
+    ],
+    "setupFiles": [
+      "<rootDir>/tests/setup/env/index.js"
+    ]
+  },
   "scripts": {
     "build": "NODE_ENV=production webpack -p --env.production",
     "start": "NODE_ENV=development webpack -d --env.development",
     "start-hot-dev": "NODE_ENV=development webpack-dev-server --env.development --env.hot",
-    "test": "NODE_ENV=development karma start",
+    "test": "NODE_ENV=test jest || true",
+    "test-coverage": "open ./app/react/tests/coverage/lcov-report/index.html",
     "rwr-node-dev": "NODE_ENV=development forever forever/development.json",
     "rwr-node-prod": "NODE_ENV=production forever -o log/rwr-server-out.log -e log/rwr-server-err.log forever/production.json",
     "generate-webpack-stats": "NODE_ENV=development webpack -d --json --profile --env.development > webpack_stats.json"

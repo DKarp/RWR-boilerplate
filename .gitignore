@@ -107,4 +107,7 @@ logfile
 /app/assets/stylesheets/react_bundle.css
 /app/assets/stylesheets/react_bundle.css.map
 
+# ignore tests coverage scaffold
+/app/react/tests/coverage
+
 webpack_stats.json

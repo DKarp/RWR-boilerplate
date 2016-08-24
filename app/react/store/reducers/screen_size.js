@@ -1,16 +1,11 @@
-import { INITIAL_SCREEN_SIZE, SCREEN_RESIZE } from 'config/constants.actions';
+import { handleActions } from 'redux-actions';
+import { initialScreenSize, screenResize } from 'store/actions/screen_size';
 
 const initialState = null;
 
-const screenSize = (state = initialState, action) => {
-  switch (action.type) {
-    case INITIAL_SCREEN_SIZE:
-    case SCREEN_RESIZE:
-      return Foundation.MediaQuery.current;
+const reducer = handleActions({
+  [initialScreenSize]: (state, action) => Foundation.MediaQuery.current,
+  [screenResize]: (state, action) => Foundation.MediaQuery.current
+}, initialState);
 
-    default:
-      return state;
-  }
-};
-
-export default screenSize;
+export default reducer;

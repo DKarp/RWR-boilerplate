@@ -1,4 +1,4 @@
-const appendCSRFtoken = (formData) => {
+export const appendCSRFtoken = (formData) => {
   const CSRFparam = document.querySelector('meta[name="csrf-param"]').content;
   const CSRFtoken = document.querySelector('meta[name="csrf-token"]').content;
 
@@ -7,7 +7,7 @@ const appendCSRFtoken = (formData) => {
   return formData;
 };
 
-const checkStatus = (response) => {
+export const checkStatus = (response) => {
   if (response.ok) {
     return response;
   } else {
@@ -18,7 +18,7 @@ const checkStatus = (response) => {
   }
 };
 
-const checkFlashMessages = (response) => {
+export const checkFlashMessages = (response) => {
   const flashMessages = JSON.parse(response.headers.get('X-Flash-Messages'));
 
   if (flashMessages) {
@@ -32,7 +32,7 @@ const checkFlashMessages = (response) => {
   }
 };
 
-const getJSON = (response) => {
+export const getJSON = (response) => {
   const contentType = response.headers.get('Content-Type');
 
   if (/application\/json/.test(contentType)) {
@@ -45,7 +45,7 @@ const getJSON = (response) => {
   }
 };
 
-const checkFormErrors = (json) => {
+export const checkFormErrors = (json) => {
   const formErrors = json.form_errors;
 
   if (formErrors) {
@@ -58,21 +58,27 @@ const checkFormErrors = (json) => {
   }
 };
 
-export const fetchRequest = (method, endpoint, callback) => (
-  (formData = new FormData()) => {
-    const params = {
-      body: appendCSRFtoken(formData),
-      credentials: 'same-origin',
-      method
-    };
+export const createFetchHandler = ({ method, endpoint, onRequest, onSuccess, onFailure }) => (
+  (formData = new FormData()) => (
+    (dispatch, getState) => {
+      onRequest && onRequest(dispatch, getState);
 
-    const handleData = (dispatch) => (json) => callback(dispatch, json);
+      const fetchParams = {
+        body: appendCSRFtoken(formData),
+        credentials: 'same-origin',
+        method
+      };
 
-    return (dispatch) => fetch(endpoint, params)
-      .then(checkStatus)
-      .then(checkFlashMessages)
-      .then(getJSON)
-      .then(checkFormErrors)
-      .then(handleData(dispatch));
-  }
+      const handleData = (data) => onSuccess && onSuccess(data, dispatch, getState);
+      const handleError = (error) => onFailure && onFailure(error, dispatch, getState);
+
+      return fetch(endpoint, fetchParams)
+        .then(checkStatus)
+        .then(checkFlashMessages)
+        .then(getJSON)
+        .then(checkFormErrors)
+        .then(handleData)
+        .catch(handleError);
+    }
+  )
 );
